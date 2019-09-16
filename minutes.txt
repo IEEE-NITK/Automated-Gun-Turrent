@@ -1,0 +1,13 @@
+Minutes
+Meet 1:
+    • First the basic idea of the project was discussed and any doubts regarding it were clarified.
+    • The different components that will be used were discussed example servo motors,Rpi,Pan,Tilt Mechanism,etc
+    • The first part of the project was divided into three parts,
+    1. Control System Design and design of shooting mechanism on solid works.
+    2. Object Detection
+    3. Object Tracking
+    • It was divided among 3 second years as:-
+    1. Gayatri – Object Detection
+    2. Jeet – Object Tracking
+    3. Chandravaran –design of Control System and shooting mechanism on solid works
+    • The tasks of object detection and control system is intended to be done before the first review of the project.
