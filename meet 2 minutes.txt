@@ -1,0 +1,5 @@
+﻿Meet 2 
+	1)We were introduced to the basics of PID tunning.
+	2)We stared working on the PID code for turning the whole system to the desired position.
+	3)As it hasnt been decided on which type of motors we are going to use for the turret the design of the control system has been put on hold 
+	4)Due to the above reason chandravaran has been assigned to work with gayathri on object detection.   
