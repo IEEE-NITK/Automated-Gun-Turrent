@@ -1,0 +1,3 @@
+Discussed methods of object detection(background subtraction) and triangulation
+It was decided that the object to be detected will be a tennis ball and hence an opencv code for detection of tennis ball has to be written
+The testing of servo has to be done
