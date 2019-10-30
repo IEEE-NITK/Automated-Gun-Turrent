@@ -1,0 +1,9 @@
+Meet 4 
+date:29/10/19,Tuesday
+The progress that has happened till now was discussed ie
+1)The feedback was successfully attached to small servo motor and can be easily attached to bigger one as well.
+2)The use of background subtractor of Opencv was successfully done,though it was a little bit slow.
+The further planned progress is 
+1)Making a hardcoded background mask to apply for the background subtractor using visual background extractor algorithm(ViBE) to make object detection quicker.
+2)Getting the Design ready for the turret using catia.
+3)Using a object recognition algorithm to identify the right object(if more than one object is moving) and marking it for further detection and tracking.
