@@ -39,7 +39,7 @@ noise = 3
 degree = np.pi/180
 a = np.array([0, 900])
 
-A=np.array([1, 0, dt, 0,
+F=np.array([1, 0, dt, 0,
 0, 1, 0, dt,
 0, 0, 1, 0,
 0, 0, 0, 1]).reshape(4,4)
@@ -75,7 +75,7 @@ detector = ObjectDetection()
 detector .setModelTypeAsTinyYOLOv3()
 detector.setModelPath( os.path.join(execution_path , "yolo-tiny.h5"))
 detector.loadModel(detection_speed = "flash")
-custom=detector.CustomObjects(person=True)
+custom=detector.CustomObjects(sports_ball=True)
 cap = cv2.VideoCapture(0)
 x = ()
 while(True):
@@ -92,7 +92,7 @@ while(True):
         continue
     xo=int((x[0]+x[2])/2)
     yo=int((x[1]+x[3])/2)
-    mu,P,pred= kalman(mu,P,A,Q,B,a,np.array([xo,yo]),H,R)
+    mu,P,pred= kalman(mu,P,F,Q,B,a,np.array([xo,yo]),H,R)
     listCenterX.append(xo)
     listCenterY.append(yo)
     res += [(mu,P)]
@@ -103,9 +103,9 @@ while(True):
         mu2,P2,pred2= kalman(mu2,P2,F,Q,B,a,None,H,R)
         res2 += [(mu2,P2)]
     xe=[mu[0] for mu,_ in res]
-    xu=[2*np.sqrt(P(0,0)) for _, in res]
+    xu=[2*np.sqrt(P[0,0]) for _,P in res]
     ye=[mu[1] for mu,_ in res]
-    yu=[2*np.sqrt(P[1,1]) for _, P in res] 
+    yu=[2*np.sqrt(P[1,1]) for _,P in res] 
     xp=[mu2[0] for mu2,_ in res2]
     yp=[mu2[1] for mu2,_ in res2]
     xpu = [2*np.sqrt(P[0,0]) for _,P in res2]
@@ -117,16 +117,13 @@ while(True):
     for n in range(len(xp)): 
         incertidumbreP=(xpu[n]+ypu[n])/2
         cv2.circle(frame,(int(xp[n]),int(yp[n])),int(incertidumbreP),(0, 0, 255))
-    if(len(listCenterY)>4):
-        if((listCenterY[-5] < listCenterY[-4]) and(listCenterY[-4] <listCenterY[-3]) and (listCenterY[-3] > listCenterY[-2]) and(listCenterY[-2] > listCenterY[-1])):
-            print("REBOUND")
-            listCenterY=[]
-            listCenterX=[]
-            listpuntos=[]
-            res=[]
-            mu = np.array([0,0,0,0])
-            P = np.diag([100,100,100,100])**2
-    cv2.imshow('frame', frame)
+    listCenterY=[]
+    listCenterX=[]
+    listpuntos=[]
+    res=[]
+    mu = np.array([0,0,0,0])
+    P = np.diag([100,100,100,100])**2
+    cv2.imshow('frame',frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
        break
 cap.release()
