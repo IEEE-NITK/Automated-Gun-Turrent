@@ -31,7 +31,7 @@ In the Software part, we used a YoloV3 algorithm was used to detect the position
 
 Here is a pic of the cad model which was designed on Solidworks.
 
-![](final_model_pin.png) 
+![](final_model_pin.PNG) 
 
 This pic needs to be in the same folder see the drive I have added it there
 
